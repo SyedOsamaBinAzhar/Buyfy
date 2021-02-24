@@ -21,7 +21,6 @@ const App = () => {
         <Route path="/categories" component={Category}/>
         <Route path="/category-products" component={CategoryProducts}/>
         <Route path="/checkout" component={Checkout}/>
-
       </Switch>
     </div>
   )
