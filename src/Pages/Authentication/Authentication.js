@@ -1,4 +1,5 @@
 import React from 'react'
+import GoogleSigninBtn from '../../Components/GoogleSigninBtn/GoogleSigninBtn'
 import SigninForm from '../../Components/SigninForm/SigninForm'
 import Signout from '../../Components/Signout/Signout'
 import SignupForm from '../../Components/SignupForm/SignupForm'
@@ -10,6 +11,7 @@ const Authentication = () => {
             <SignupForm/>
             <SigninForm/>
             <Signout/>
+            <GoogleSigninBtn/>
         </div>
     )
 }
