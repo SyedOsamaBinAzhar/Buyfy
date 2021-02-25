@@ -53,7 +53,16 @@ export var signin = ({email,password}) => async (dispatch) =>{
 
         //fetch user data from firestore
         var userData = await firestore.collection("users").doc(uid).get();
-        console.log(userData.data())
+        var {fullName, email : userEmail} = userData.data();
+
+        var userDataForState = {
+            fullName,
+            email : userEmail,
+            uid
+        }
+
+        dispatch(setUser(userDataForState))
+
         //set user data to auth/redux state
     } catch (error) {
         console.log(error)
