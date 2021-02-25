@@ -40,5 +40,22 @@ var setUser = (user) =>  ({
     payload: {
     user
  }
- 
+
 })
+//SIGNUP DONE
+
+//SIGN IN FUNCTION 
+
+export var signin = ({email,password}) => async (dispatch) =>{
+    try {
+
+        var {user: {uid}} = await auth.signInWithEmailAndPassword(email,password);
+
+        //fetch user data from firestore
+        var userData = await firestore.collection("users").doc(uid).get();
+        console.log(userData.data())
+        //set user data to auth/redux state
+    } catch (error) {
+        console.log(error)
+    }
+}
