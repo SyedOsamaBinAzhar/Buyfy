@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 
 import {Route, Switch} from 'react-router-dom';
+
+import {connect} from 'react-redux'
 
 import Home from './Pages/Home/Home'
 import Authentication from './Pages/Authentication/Authentication'
@@ -9,10 +11,18 @@ import Category from './Pages/Category/Category'
 import Checkout from './Pages/Checkout/Checkout'
 import CategoryProducts from './Pages/CategoryProducts/CategoryProducts'
 
+import {firebaseAuthListener} from "../src/Redux/Auth/AuthActions"
 
 
 
-const App = () => {
+const App = ({firebaseAuthListener}) => {
+  useEffect(()=>{
+    //CDM
+    //firebase Auth listener Listened when componenet mounted
+    firebaseAuthListener()
+  },[])
+
+  
   return (
     <div>
       <Switch>
@@ -26,6 +36,8 @@ const App = () => {
   )
 }
 
+var actions = {
+  firebaseAuthListener
+}
 
-
-export default App
+export default connect(null,actions)(App)
