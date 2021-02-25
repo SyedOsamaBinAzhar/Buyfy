@@ -1,6 +1,6 @@
 import {auth, serverTimestamp} from "../../Firebase/Firebase"
 import {firestore} from "../../Firebase/Firebase"
-import { SET_USER } from "./AuthConstants";
+import { REMOVE_USER, SET_USER } from "./AuthConstants";
 
 //simple functions can also be called even when thunk is used.
 
@@ -42,6 +42,11 @@ var setUser = (user) =>  ({
  }
 
 })
+
+var removeUser = (user) =>  ({
+    type: REMOVE_USER
+})
+
 //SIGNUP DONE
 
 //SIGN IN FUNCTION 
@@ -64,6 +69,22 @@ export var signin = ({email,password}) => async (dispatch) =>{
         dispatch(setUser(userDataForState))
 
         //set user data to auth/redux state
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export var signout = () => async (dispatch) => {
+    try {
+        //signout user from firebase auth
+        await auth.signOut();
+
+        //set auth state to null 
+
+        dispatch(removeUser())
+
+         
     } catch (error) {
         console.log(error)
     }

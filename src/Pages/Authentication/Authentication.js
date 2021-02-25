@@ -1,5 +1,6 @@
 import React from 'react'
 import SigninForm from '../../Components/SigninForm/SigninForm'
+import Signout from '../../Components/Signout/Signout'
 import SignupForm from '../../Components/SignupForm/SignupForm'
 
 const Authentication = () => {
@@ -8,7 +9,7 @@ const Authentication = () => {
             <h1>Auth Page</h1>
             <SignupForm/>
             <SigninForm/>
-           
+            <Signout/>
         </div>
     )
 }
