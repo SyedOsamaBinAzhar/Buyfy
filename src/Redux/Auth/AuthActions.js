@@ -1,6 +1,8 @@
 import {auth, serverTimestamp} from "../../Firebase/Firebase"
 import {firestore} from "../../Firebase/Firebase"
+import { SET_USER } from "./AuthConstants";
 
+//simple functions can also be called even when thunk is used.
 
 //thunk setup karlia hai toh aysnc action pass akra skta hn
 export var signup = ({email,password,fullName})=> async (dispatch)=>{
@@ -16,9 +18,27 @@ export var signup = ({email,password,fullName})=> async (dispatch)=>{
             createdAt: serverTimestamp()
             //createdAt:  new Date() nai karenge cos local computer ka time ghalat hosakta hai we will use server ka time
         }
-        var userData=await firestore.collection("users").doc(uid).set(userInfo)
+        await firestore.collection("users").doc(uid).set(userInfo)
+
+        
+        //setting up redux state
+        var userDataForState={
+            fullName,email,uid
+        }
+        //action is not a simple function call it using dispatch otherwise state wont change
+        dispatch(setUser(userDataForState))
+
 
     } catch (error) {
         console.log(error)
     }
 }
+
+//sepaarate function for setting user in redux state.
+var setUser = (user) =>  ({
+    type: SET_USER,
+    payload: {
+    user
+ }
+ 
+})
