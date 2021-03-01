@@ -10,8 +10,8 @@ var productReducer = (state = initialState , action) => {
 
     switch (type) {
         case SET_PRODUCTS:
-            return [...payload.products]
-        default: return state;
+            return [...payload.products]; 
+        default : return state
     }
 }
 

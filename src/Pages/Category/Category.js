@@ -1,9 +1,9 @@
 import React , {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../../Redux/Products/ProductsAction'
+import { categorizedProducts } from '../../Utility/ProductstUtil'
 
-const Category = ({fetchProducts}) => {
-
+const Category = ({fetchProducts, categories}) => {
     useEffect(() => {
         //CDM
         fetchProducts()
@@ -24,5 +24,7 @@ const Category = ({fetchProducts}) => {
 var actions = {
     fetchProducts
 }
-
-export default connect(null,actions)(Category)
+var mapState = (state) => ({
+    categories : categorizedProducts(state.products) //fn called from ProductsUtil
+})
+export default connect(mapState,actions)(Category)
