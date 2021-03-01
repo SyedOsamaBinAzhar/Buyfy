@@ -12,6 +12,7 @@ import Checkout from './Pages/Checkout/Checkout'
 import CategoryProducts from './Pages/CategoryProducts/CategoryProducts'
 
 import {firebaseAuthListener} from "../src/Redux/Auth/AuthActions"
+import Test from './Pages/Test/Test';
 
 
 
@@ -31,6 +32,8 @@ const App = ({firebaseAuthListener}) => {
         <Route path="/categories" component={Category}/>
         <Route path="/category-products" component={CategoryProducts}/>
         <Route path="/checkout" component={Checkout}/>
+        <Route path="/test" component={Test}/>
+      
       </Switch>
     </div>
   )
