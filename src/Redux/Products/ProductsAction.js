@@ -1,4 +1,4 @@
-import { serverTimestamp, storage } from "../../Firebase/Firebase"
+import { firestore, serverTimestamp, storage } from "../../Firebase/Firebase"
 import {v4 as uuid} from 'uuid'
 export var uploadProductToFirestore = (productsObj) => async() => {
 try {
@@ -37,6 +37,9 @@ try {
         productsObj.cost=parseFloat(productsObj.cost);
         productsObj.quantity=parseInt(productsObj.quantity)
         console.log(productsObj)
+
+        //3 - create doc in firestore 
+        await firestore.collection("products").add(productsObj)
     }
     )
     
