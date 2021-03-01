@@ -1,4 +1,4 @@
-import { storage } from "../../Firebase/Firebase"
+import { serverTimestamp, storage } from "../../Firebase/Firebase"
 import {v4 as uuid} from 'uuid'
 export var uploadProductToFirestore = (productsObj) => async() => {
 try {
@@ -18,6 +18,7 @@ try {
     , 
     (snapshot) => {
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        progress = parseInt(progress);
         console.log('Upload is ' + progress + '% done');
     }
     ,
@@ -29,14 +30,17 @@ try {
         //will trigger on completion of upload 
         //downloadUrl ab milega
         var downloadURL = await imageRef.getDownloadURL()
-        // console.log(downloadURL)
 
+        //2 - modify productObj with cover photo url and created At
+        productsObj.coverPhoto = downloadURL;
+        productsObj.createdAt = serverTimestamp();
+        productsObj.cost=parseFloat(productsObj.cost);
+        productsObj.quantity=parseInt(productsObj.quantity)
+        console.log(productsObj)
     }
     )
     
-    //2 - modify productObj with cover photo url and created At
 
-    //3 - create doc in firestore 
 } catch (error) {
     console.log(error)
 }
