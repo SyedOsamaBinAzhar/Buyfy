@@ -3,7 +3,7 @@ import {auth} from '../../Firebase/Firebase'
 
 
 const Home = (auth) => {
-    console.log(auth)
+    // console.log(auth)
     return (
         <div>
             <h1>Home page</h1>

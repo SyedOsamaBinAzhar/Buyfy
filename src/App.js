@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-
+import "./App.css"
 
 import {Route, Switch} from 'react-router-dom';
 
@@ -13,6 +13,7 @@ import CategoryProducts from './Pages/CategoryProducts/CategoryProducts'
 
 import {firebaseAuthListener} from "../src/Redux/Auth/AuthActions"
 import Test from './Pages/Test/Test';
+import Navbar from './Components/Navbar/Navbar';
 
 
 
@@ -26,6 +27,8 @@ const App = ({firebaseAuthListener}) => {
   
   return (
     <div>
+      <Navbar/>
+
       <Switch>
         <Route path="/" component={Home} exact/>
         <Route path="/authentication" component={Authentication} />
