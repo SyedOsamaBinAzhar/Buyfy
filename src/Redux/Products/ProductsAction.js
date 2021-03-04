@@ -1,6 +1,6 @@
 import { firestore, serverTimestamp, storage } from "../../Firebase/Firebase"
 import {v4 as uuid} from 'uuid'
-import {SET_PRODUCTS} from "../Products/ProductsConstants"
+import {CLEAR_PRODUCTS, SET_PRODUCTS} from "../Products/ProductsConstants"
 import {categorizedProducts} from "../../Utility/ProductstUtil"
 
 //admin side stuff
@@ -65,7 +65,6 @@ export var fetchProducts = () => async(dispatch) => {
             products.push(doc.data())
         });
         // var categories = categorizedProducts(products); //Fn fetched from ProductUtility
-        // console.log(categories);
         dispatch(
             {
                 type:SET_PRODUCTS,
@@ -81,3 +80,40 @@ export var fetchProducts = () => async(dispatch) => {
     
 }
 
+export var fetchCategoryProducts = (category) => async (dispatch) =>{
+    try {
+        console.log(category)
+        // var products = await firestore.collection()
+        var query = await firestore.collection("products").where("category","==",category).get();
+        // var products = query.data(); returns an array so loop karna parega
+        
+        var products = [];
+        
+        query.docs.forEach(doc => {
+            products.push(doc.data())
+        });
+        dispatch(
+            {
+                type:SET_PRODUCTS,
+                payload : {
+                    products
+                }
+            }
+        )
+
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export var clearProducts = () => async(dispatch) => {
+ try {
+     dispatch({
+         type: CLEAR_PRODUCTS
+     })
+ } catch (error) {
+     console.log(error)
+ }
+}
