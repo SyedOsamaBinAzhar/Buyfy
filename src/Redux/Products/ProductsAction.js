@@ -62,7 +62,7 @@ export var fetchProducts = () => async(dispatch) => {
         var products = [];
         
         query.docs.forEach(doc => {
-            products.push(doc.data())
+            products.push({...doc.data(), id : doc.id})
         });
         // var categories = categorizedProducts(products); //Fn fetched from ProductUtility
         dispatch(
@@ -90,7 +90,7 @@ export var fetchCategoryProducts = (category) => async (dispatch) =>{
         var products = [];
         
         query.docs.forEach(doc => {
-            products.push(doc.data())
+            products.push({...doc.data(), id: doc.id})
         });
         dispatch(
             {

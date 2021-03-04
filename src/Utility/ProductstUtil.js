@@ -33,3 +33,47 @@ export var categorizedProducts = (productsArr) => {
     return categories
     
 }
+
+export var productAdditionInCart = (existingProducts,upcomingProduct) => {
+    var exist = existingProducts.some((existingProduct) => existingProduct.id === upcomingProduct.id)
+    if(!exist){
+        return [...existingProducts, {...upcomingProduct, quantity: 1}]
+    } else {
+        return existingProducts.map((existingProduct) => {
+
+            if(existingProduct.id === upcomingProduct.id){
+                return {
+                    ...existingProduct,
+                    quantity: existingProduct.quantity + 1
+                }
+            } else {return existingProduct};
+
+        })
+    }
+}
+
+export var productRemovalFromCart = (existingProducts,upcomingProductId) => {
+
+    var product = existingProducts.find(existingProduct => existingProduct.id === upcomingProductId)
+    if(product){
+        if(product.quantity > 0){
+            return existingProducts.map((existingProduct) => {
+                if(existingProduct.id === upcomingProductId){
+                    return {
+                        ...existingProduct,
+                        quantity: existingProduct.quantity-1
+                    }
+                } else {
+                    return existingProduct
+                }
+            })
+        }
+        else {
+            return existingProducts.filter((existingProduct) => existingProduct.id !== upcomingProductId)
+    
+        }
+    }
+    else{
+        return existingProducts
+    }
+}
