@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {uploadProductToFirestore} from "../../Redux/Products/ProductsAction"
 import {connect} from 'react-redux'
+import Cart from '../../Components/Cart/Cart';
 const Test = ({uploadProductToFirestore}) => {
 
     var [category , setCategory] = useState("");
@@ -26,7 +27,7 @@ const Test = ({uploadProductToFirestore}) => {
     return (
         <div>
           <h1>Test</h1>  
-          <form onSubmit={handleSubmit}>
+          {/* <form onSubmit={handleSubmit}>
               <input onChange={(e)=>setCategory(e.target.value)} value={category} type="text" placeholder="Enter Category"/><br/>
               <input onChange={(e)=>setTitle(e.target.value)} value={title} type="text" placeholder="Enter Title"/><br/>
               <input onChange={(e)=>setCost(e.target.value)} value={cost} type="text" placeholder="Enter Cost"/><br/>
@@ -35,7 +36,8 @@ const Test = ({uploadProductToFirestore}) => {
               <input onChange={(e)=>setCoverPhoto(e.target.files[0])} type="file" placeholder="Cover photo"/><br/>
               <button type="submit">Submit</button>
 
-          </form>
+          </form> */}
+          <Cart/>
         </div>
     )
 }

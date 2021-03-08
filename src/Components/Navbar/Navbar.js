@@ -21,6 +21,13 @@ const Navbar = () => {
             <h3 className="navItem">Auth</h3>
             </Link>
             </div>
+
+            <div>
+            <Link to="/test">
+            <h3 className="navItem">Test</h3>
+            </Link>
+            </div>
+
             </div>
 
         </div>
