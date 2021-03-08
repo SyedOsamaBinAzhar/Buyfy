@@ -14,6 +14,7 @@ import CategoryProducts from './Pages/CategoryProducts/CategoryProducts'
 import {firebaseAuthListener} from "../src/Redux/Auth/AuthActions"
 import Test from './Pages/Test/Test';
 import Navbar from './Components/Navbar/Navbar';
+import Product from './Pages/Product/Product';
 
 
 
@@ -36,6 +37,8 @@ const App = ({firebaseAuthListener}) => {
         <Route path="/category-products/:category" component={CategoryProducts}/>
         <Route path="/checkout" component={Checkout}/>
         <Route path="/test" component={Test}/>
+        <Route path="/product/:productId" component={Product}/>
+
       
       </Switch>
     </div>
