@@ -1,10 +1,14 @@
 import React from 'react'
 import CartList from "../CartList/CartList"
+import {Link} from "react-router-dom";
+
+
+
 const Cart = () => {
     return (
         <div>
             <CartList/>
-            <button>Check out</button>
+            <Link to="/checkout"><button>Check out</button></Link>
         </div>
     )
 }

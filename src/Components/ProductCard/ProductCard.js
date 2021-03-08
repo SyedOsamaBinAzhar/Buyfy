@@ -7,7 +7,7 @@ const ProductCard = ({addProductToCart,...product}) => {
     return (
         <div>
             <h3>{title}-{cost}<button onClick={() => addProductToCart(product)}>Add to cart</button></h3>
-
+            
         </div>
     )
 }
