@@ -21,7 +21,7 @@ const Product = ({fetchSpecificProduct, match: {params: {productId}}}) => {
     return (
         <div>
             <h1>Product</h1>
-            { product.title && <ProductCard {...product} key={} />}
+            { product.title && <ProductCard {...product} key={product.title} />}
         </div>
     )
 }

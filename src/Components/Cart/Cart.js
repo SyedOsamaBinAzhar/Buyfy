@@ -1,16 +1,20 @@
 import React from 'react'
 import CartList from "../CartList/CartList"
 import {Link} from "react-router-dom";
+import {connect} from "react-redux"
+import {generateOrder} from "../../Redux/Orders/OrdersActions"
 
 
-
-const Cart = () => {
+const Cart = ({generateOrder}) => {
     return (
         <div>
             <CartList/>
-            <Link to="/checkout"><button>Check out</button></Link>
+            <button onClick={generateOrder }>Check out</button>
         </div>
     )
 }
 
-export default Cart
+var actions = {
+  generateOrder
+}
+export default connect(null,actions)(Cart)
