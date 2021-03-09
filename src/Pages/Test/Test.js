@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import {uploadProductToFirestore} from "../../Redux/Products/ProductsAction"
 import {connect} from 'react-redux'
 import Cart from '../../Components/Cart/Cart';
+import Header from '../../Components/Header/Header';
+import Paragraph from '../../Components/Paragraph/Paragraph';
+import Button from '../../Components/Button/Button';
 const Test = ({uploadProductToFirestore}) => {
 
     var [category , setCategory] = useState("");
@@ -38,6 +41,16 @@ const Test = ({uploadProductToFirestore}) => {
 
           </form> */}
           <Cart/>
+          <Header fontSize={32} fontweight="bold">This is a Header</Header>
+          <Header fontSize={16} fontweight="light">This is a Header</Header>
+          <Header fontSize={50} fontweight="semiBold">This is a Header</Header>
+          
+          <Paragraph fontSize={32} fontweight="bold">This is a Header</Paragraph>
+          <Paragraph fontSize={16} fontweight="light">This is a Header</Paragraph>
+          <Paragraph fontSize={50} fontweight="semiBold">This is a Header</Paragraph>
+         
+          <Button fontSize={32} fontweight="bold" background="orange">Click me</Button>
+        
         </div>
     )
 }
