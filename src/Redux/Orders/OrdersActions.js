@@ -15,8 +15,8 @@ export var generateOrder = (orderInfo) => async (dispatch,getState) => {
         } 
         // console.log(orderInfo)
         var order = await firestore.collection("orders").add(orderInfo);
-        // console.log(order.id)
-        console.log(history)
+        history.push(`/checkout/${order.id}`)
+        
 
     } catch (error) {
         console.log(error)

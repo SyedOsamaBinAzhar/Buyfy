@@ -9,7 +9,7 @@ const Cart = ({generateOrder}) => {
     return (
         <div>
             <CartList/>
-            <button onClick={generateOrder }>Check out</button>
+            <Link to="/checkout"><button onClick={generateOrder }>Check out</button></Link>
         </div>
     )
 }
