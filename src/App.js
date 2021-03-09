@@ -35,7 +35,7 @@ const App = ({firebaseAuthListener}) => {
         <Route path="/authentication" component={Authentication} />
         <Route path="/categories" component={Category}/>
         <Route path="/category-products/:category" component={CategoryProducts}/>
-        <Route path="/checkout" component={Checkout}/>
+        <Route path="/checkout/:orderId" component={Checkout}/>
         <Route path="/test" component={Test}/>
         <Route path="/product/:productId" component={Product}/>
 

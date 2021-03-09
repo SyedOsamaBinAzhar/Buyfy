@@ -1,4 +1,5 @@
 import { firestore, serverTimestamp, storage } from "../../Firebase/Firebase"
+import history from "../../History/History";
 
 
 export var generateOrder = (orderInfo) => async (dispatch,getState) => {
@@ -12,7 +13,11 @@ export var generateOrder = (orderInfo) => async (dispatch,getState) => {
             createdAt: serverTimestamp(),
             orderStatus: "pending"
         } 
-        console.log(orderInfo)
+        // console.log(orderInfo)
+        var order = await firestore.collection("orders").add(orderInfo);
+        // console.log(order.id)
+        console.log(history)
+
     } catch (error) {
         console.log(error)
     }
