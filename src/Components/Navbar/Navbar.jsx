@@ -7,10 +7,10 @@ import {connect} from "react-redux"
 import {signout} from "../../Redux/Auth/AuthActions"
 
 
-const MenuItem = ({children,to="#", ...restProps}) => {
+const MenuItem = ({children,to="#", ...restprops}) => {
     return (<div>
     
-    <div {...restProps} className="menuItem" >
+    <div {...restprops} className="menuItem" >
         <Link to={to}>
         <Header style={{cursor:"pointer",display:"inline"}} fontSize={24} fontweight="bold">{children}</Header>
         
@@ -28,7 +28,7 @@ const Navbar = ({auth,signout}) => {
         <MenuItem to="/">LOGO</MenuItem>
         <MenuItem to="/categories">SHOP</MenuItem>
         <MenuItem>CART</MenuItem>
-        {auth? <MenuItem to="/authentication" onCLick={signout}>LOGOUT</MenuItem> : <MenuItem to="/authentication">LOGIN</MenuItem>}
+        {auth? <MenuItem to="/authentication" onClick={signout}>LOGOUT</MenuItem> : <MenuItem to="/authentication">LOGIN</MenuItem>}
 
 
 

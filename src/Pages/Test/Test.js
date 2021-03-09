@@ -5,6 +5,7 @@ import Cart from '../../Components/Cart/Cart';
 import Header from '../../Components/Header/Header';
 import Paragraph from '../../Components/Paragraph/Paragraph';
 import Button from '../../Components/Button/Button';
+import ProductCard from '../../Components/ProductCard/ProductCard';
 const Test = ({uploadProductToFirestore}) => {
 
     var [category , setCategory] = useState("");
@@ -28,7 +29,7 @@ const Test = ({uploadProductToFirestore}) => {
     }
 
     return (
-        <div>
+        <div style={{fontSize:"62.5%"}}>
           <h1>Test</h1>  
           {/* <form onSubmit={handleSubmit}>
               <input onChange={(e)=>setCategory(e.target.value)} value={category} type="text" placeholder="Enter Category"/><br/>
@@ -41,7 +42,7 @@ const Test = ({uploadProductToFirestore}) => {
 
           </form> */}
           <Cart/>
-          <Header fontSize={32} fontweight="bold">This is a Header</Header>
+          {/* <Header fontSize={32} fontweight="bold">This is a Header</Header>
           <Header fontSize={16} fontweight="light">This is a Header</Header>
           <Header fontSize={50} fontweight="semiBold">This is a Header</Header>
           
@@ -49,8 +50,9 @@ const Test = ({uploadProductToFirestore}) => {
           <Paragraph fontSize={16} fontweight="light">This is a Header</Paragraph>
           <Paragraph fontSize={50} fontweight="semiBold">This is a Header</Paragraph>
          
-          <Button fontSize={32} fontweight="bold" background="orange">Click me</Button>
-        
+          <Button fontSize={32} fontweight="bold" background="orange">Click me</Button> */}
+
+        <ProductCard/>
         </div>
     )
 }
