@@ -2,7 +2,7 @@ import {auth, serverTimestamp, googleAuthProvider} from "../../Firebase/Firebase
 import {firestore} from "../../Firebase/Firebase"
 import { REMOVE_USER, SET_USER } from "./AuthConstants";
 import firebase from "../../Firebase/Firebase"
-
+import history from "../../History/History"
 //simple functions can also be called even when thunk is used.
 
 //thunk setup karlia hai toh aysnc action pass akra skta hn
@@ -28,7 +28,8 @@ export var signup = ({email,password,fullName})=> async (dispatch)=>{
         // }
         // //action is not a simple function call it using dispatch otherwise state wont change
         // dispatch(setUser(userDataForState))
-
+        //navigate to home page
+        history.push("/")
 
     } catch (error) {
         console.log(error)
@@ -39,7 +40,8 @@ export var signin = ({email,password}) => async (dispatch) =>{
     try {
 
         var {user: {uid}} = await auth.signInWithEmailAndPassword(email,password);
-
+          //navigate to home page
+          history.push("/")
     } catch (error) {
         console.log(error)
     }

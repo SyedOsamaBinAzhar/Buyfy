@@ -1,0 +1,14 @@
+.home{
+    display: grid;
+    grid-template-rows:80vh;
+    background-color: rgb(120, 116, 82);
+    grid-template-columns: repeat(2,1fr);
+
+}
+.homeLeft{
+background-color: lightcoral;
+}
+
+.homeRIght{
+    background-color: orange;
+    }

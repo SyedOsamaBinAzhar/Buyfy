@@ -2,33 +2,35 @@ import "./Navbar.css"
 
 import React from 'react'
 import { Link } from "react-router-dom"
+import Header from "../../Components/Header/Header"
+import {connect} from "react-redux"
+import {signout} from "../../Redux/Auth/AuthActions"
 
-const Navbar = () => {
+
+const MenuItem = ({children,to="#", ...restProps}) => {
+    return (<div>
+    
+    <div {...restProps} className="menuItem" >
+        <Link to={to}>
+        <Header style={{cursor:"pointer",display:"inline"}} fontSize={24} fontweight="bold">{children}</Header>
+        
+        </Link>
+
+    </div>
+    
+    </div>)
+}
+
+
+const Navbar = ({auth,signout}) => {
     return (
         <div className="navbar">
-            <div className="logo"><Link to="/home"><h1>Logo</h1></Link></div>
-            
-            <div className="navItemContainer">
-            <div>
-            <Link to="/categories">
-            <h3 className="navItem">Categories</h3>
-            </Link>
+        <MenuItem to="/">LOGO</MenuItem>
+        <MenuItem to="/categories">SHOP</MenuItem>
+        <MenuItem>CART</MenuItem>
+        {auth? <MenuItem to="/authentication" onCLick={signout}>LOGOUT</MenuItem> : <MenuItem to="/authentication">LOGIN</MenuItem>}
 
-            </div>  
-            
-            <div>
-            <Link to="/authentication">
-            <h3 className="navItem">Auth</h3>
-            </Link>
-            </div>
 
-            <div>
-            <Link to="/test">
-            <h3 className="navItem">Test</h3>
-            </Link>
-            </div>
-
-            </div>
 
         </div>
 
@@ -36,4 +38,12 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+var actions = {
+    signout
+}
+
+var mapState = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapState,actions)(Navbar)
