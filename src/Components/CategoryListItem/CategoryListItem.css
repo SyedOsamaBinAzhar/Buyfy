@@ -1,0 +1,17 @@
+.categoryListItem{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;   
+    position: relative;
+    margin-bottom: 150px;
+}
+.categoryText{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform:translateX(-50%) translateX(-70%);
+    font-size: 180px;
+    letter-spacing: 25px;
+    cursor: pointer;
+ 
+}

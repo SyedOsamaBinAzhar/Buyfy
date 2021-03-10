@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import CategoryListItem from '../CategoryListItem/CategoryListItem'
 import {fetchProducts} from "../../Redux/Products/ProductsAction"
 import {categorizedProducts} from "../../Utility/ProductstUtil"
+import "./CategoryList.css"
 const CategoryList = ({fetchProducts, categories}) => {
     // console.log(categories)
     useEffect(() => {
@@ -15,8 +16,8 @@ const CategoryList = ({fetchProducts, categories}) => {
     }, [])
 
     return (
-        <div>
-            <h1>Category List</h1>
+        <div className="categoryList">
+            {/* <h1>Category List</h1> */}
             {categories.map((category) => <CategoryListItem key={category.category} {...category}/>)}
         -------------------------------------------------------
         </div>
