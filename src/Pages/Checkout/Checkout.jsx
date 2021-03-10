@@ -20,10 +20,10 @@ const Checkout = ({total}) => {
           <Header fontSize={40} fontweight="bold">Shopping Cart</Header>
           <CheckoutList/>
           <div className="checkoutBottomContent">
-          <Header fontSize={40} fontweight="bold">Total - 490$</Header>
+          <Header fontSize={40} fontweight="bold">Total - {total}$</Header>
             <Button style={{justifySelf: "end" , borderRadius: "20px"}} fontSize={30} fontweight="semiBold">Proceed AND PAY</Button>
           </div>
-          <h3>Total Amount - {total}</h3>
+          {/* <h3>Total Amount - {total}</h3> */}
                 {/*
             
            

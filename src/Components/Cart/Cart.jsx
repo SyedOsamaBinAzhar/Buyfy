@@ -5,11 +5,11 @@ import {connect} from "react-redux"
 import {generateOrder} from "../../Redux/Orders/OrdersActions"
 import "./Cart.css"
 
-const Cart = ({generateOrder}) => {
+const Cart = ({generateOrder, cart}) => {
     return (
         <div className="cart">
             <CartList/>
-            <Link to="/checkout"><button onClick={generateOrder}>Check out</button></Link>
+            <Link to="/checkout"><button  disabled={cart.length > 0 ? false : true} onClick={generateOrder}>Check out</button></Link>
         </div>
     )
 }
@@ -17,4 +17,8 @@ const Cart = ({generateOrder}) => {
 var actions = {
   generateOrder
 }
-export default connect(null,actions)(Cart)
+
+var mapState= (state) => ({
+    cart: state.cart
+})
+export default connect(mapState,actions)(Cart)

@@ -6,22 +6,22 @@ import Button from "../Button/Button"
 import "./CheckoutListItem.css"
 const CheckoutListItem = ({deleteProductFromCart,removeProductFromCart,addProductToCart,...product}) => {
     
-    var {title,quantity,cost,id} = product
+    var {title,quantity,cost,id,coverPhoto} = product
     
     return (
         <div className="checkout-list-item">
             <div className="checkout-item-product">
-                <div className="checkout-item-product-image"></div>
-                <Paragraph fontSize={20} fontweight="semiBold">My Product</Paragraph>
+                <div className="checkout-item-product-image" style={{backgroundSize: `url(${coverPhoto})`}}></div>
+                <Paragraph fontSize={20} fontweight="semiBold">{title}</Paragraph>
             </div>
             <div  className="checkout-item-quantity center" style={{flexFlow:"row"}} >
-                <Button color="black" background="white" style={{borderTopLeftRadius:"20px" , borderBottmLeftRadius:"20px", transform:"translateX(5px)" }}>+</Button><Button color="black" background="white">3</Button><Button  color="black" background="white" style={{borderTopRightRadius:"20px" , borderBottomRighttRadius:"20px", transform:"translateX(-5px)" }}>-</Button>
+                <Button onClick={() => addProductToCart(product)} color="black" background="white"  style={{borderTopLeftRadius:"20px" , borderBottmLeftRadius:"20px", transform:"translateX(5px)" }}>+</Button><Button color="black" background="white">{quantity}</Button><Button onClick={() => deleteProductFromCart(id)}  color="black" background="white" style={{borderTopRightRadius:"20px" , borderBottomRighttRadius:"20px", transform:"translateX(-5px)" }}>-</Button>
             </div>
             <div className="checkout-item-price center">
-                <Paragraph fontSize={26} fontweight="semiBold">240</Paragraph>
+                <Paragraph fontSize={26} fontweight="semiBold">{cost}</Paragraph>
             </div>
             <div className="checkout-item-cross">
-            <Paragraph fontSize={30} fontweight="semiBold">x</Paragraph>
+            <Paragraph onClick={() => deleteProductFromCart(product)} fontSize={30} fontweight="semiBold">x</Paragraph>
 
             </div>
 
