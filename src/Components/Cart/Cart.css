@@ -1,0 +1,12 @@
+.cart{
+    width: 30em;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content minmax(20em,1fr) min-content;
+    background-color: brown;
+    padding:2em;
+    justify-items: center;
+    position: absolute;
+    transform: translateX(-25%);
+
+}

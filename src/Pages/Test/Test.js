@@ -30,7 +30,7 @@ const Test = ({uploadProductToFirestore}) => {
 
     return (
         <div style={{fontSize:"62.5%"}}>
-          <h1>Test</h1>  
+          {/* <h1>Test</h1>   */}
           {/* <form onSubmit={handleSubmit}>
               <input onChange={(e)=>setCategory(e.target.value)} value={category} type="text" placeholder="Enter Category"/><br/>
               <input onChange={(e)=>setTitle(e.target.value)} value={title} type="text" placeholder="Enter Title"/><br/>
@@ -52,7 +52,7 @@ const Test = ({uploadProductToFirestore}) => {
          
           <Button fontSize={32} fontweight="bold" background="orange">Click me</Button> */}
 
-        <ProductCard/>
+        {/* <ProductCard/> */}
         </div>
     )
 }

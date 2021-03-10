@@ -16,13 +16,13 @@ var fontWeightEstimator = (weightStr) => {
   }
 }
 
-const Header = ({children,fontSize = 16, fontweight="bold",style = {}}) => {
+const Header = ({children,fontSize = 16, fontweight="bold",style = {},...restProps}) => {
    
    var fontWeightValue = fontWeightEstimator(fontweight)
    var fontSizeValue = fontSize / 10;
     return (
         <div>
-            <h1 className="header" style={{fontweight:fontWeightValue, fontSize: `${fontSizeValue}em`,...style}}>{children}</h1>
+            <h1 {...restProps} className="header" style={{fontweight:fontWeightValue, fontSize: `${fontSizeValue}em`,...style}}>{children}</h1>
         </div>
     )
 }

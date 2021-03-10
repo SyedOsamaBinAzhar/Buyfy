@@ -1,0 +1,10 @@
+.cartListItem{
+    display: grid;
+    grid-template-columns: min-content 1fr;
+
+}
+.cartItemImage{
+    width: 5em;
+    height: 5em;
+    background-color: green;
+}

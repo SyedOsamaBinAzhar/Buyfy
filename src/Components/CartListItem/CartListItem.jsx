@@ -1,16 +1,27 @@
 import React from 'react'
 import {connect} from "react-redux"
 import {addProductToCart, removeProductFromCart,deleteProductFromCart} from "../../Redux/Cart/CartActions"
+import Paragraph from '../Paragraph/Paragraph'
+import "./CartListItem.css"
+
 
 const CartListItem = ({deleteProductFromCart,removeProductFromCart,addProductToCart,...product}) => {
     
-    var {title,quantity,cost,id} = product
+    var {title,quantity,cost,id,coverPhoto} = product
+    // console.log(coverPhoto)
     
     return (
-        <div>
-            <h1>{title} - {cost} - <button onClick={() => deleteProductFromCart(id)}>X</button> </h1>
+        <div className="cartListItem">
+            <div style={{background:`url({${coverPhoto})` , backgroundSize: "100% 100%,cover"}} className="cartItemImage"></div>
+            <div className="cartItemDesc">
+                <Paragraph fontSize={17} fontweight = "semiBold">{title}</Paragraph>
+                <div style={{display:"flex"}}>
+                <Paragraph fontweight = "regular">{cost} x {quantity}</Paragraph>   <Paragraph>{cost * quantity}</Paragraph>
+                </div>
+            </div>
+            {/* <h1>{title} - {cost} - <button onClick={() => deleteProductFromCart(id)}>X</button> </h1>
             <h3><button onClick={() => addProductToCart(product)}>+</button>  {quantity}  <button onClick={() => removeProductFromCart(id)}>-</button></h3>
-            
+             */}
 
         </div>
     )
