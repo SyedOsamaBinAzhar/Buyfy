@@ -12,7 +12,7 @@ const CartListItem = ({deleteProductFromCart,removeProductFromCart,addProductToC
     
     return (
         <div className="cartListItem">
-            <div style={{background:`url({${coverPhoto})` , backgroundSize: "100% 100%,cover"}} className="cartItemImage"></div>
+            <div stle={{background: `url(${coverPhoto})`}} className="cartItemImage"></div>
             <div className="cartItemDesc">
                 <Paragraph fontSize={17} fontweight = "semiBold">{title}</Paragraph>
                 <div style={{display:"flex"}}>

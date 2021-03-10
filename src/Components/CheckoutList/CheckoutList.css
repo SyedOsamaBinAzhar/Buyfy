@@ -1,0 +1,6 @@
+.checkoutList{
+    display: grid;
+    background-color: blue;
+    overflow-y: scroll;
+    row-gap: 1em;
+}

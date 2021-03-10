@@ -1,0 +1,20 @@
+.checkout-list-item{
+    display: grid;
+    grid-template-columns:  repeat(4,1fr);
+}
+.checkout-item-product-image{
+    width: 100px; height: 100px;
+    background-color: chartreuse;
+    margin-right: 2em;
+}  
+.checkout-item-product{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkoutListItem-extends{
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding: 1em 0em;
+}
